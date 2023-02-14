@@ -1,0 +1,21 @@
+#!/bin/bash
+
+export COMPOSE_FILE=docker/docker-compose.yml
+
+case "$1" in
+  bash)
+    docker-compose run --service-ports --rm js_based_project /bin/bash
+    ;;
+  build)
+    docker-compose build
+    ;;
+  rebuild)
+    docker-compose build --no-cache
+    ;;
+  down)
+    docker-compose down
+    ;;
+  up)
+    docker-compose up
+    ;;
+esac
